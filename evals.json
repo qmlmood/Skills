@@ -1,0 +1,26 @@
+{
+  "skill_name": "jenkins-deploy",
+  "evals": [
+    {
+      "id": 1,
+      "name": "confirm-before-deploy",
+      "prompt": "把 supply-center-prod 发布到 prod 环境。",
+      "expected_output": "先展示将发布的环境(prod)和分支(master)并征得用户确认；未确认前不带 --yes 触发部署。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "failure-analysis",
+      "prompt": "supply-center-fail 这个任务发布失败了，帮我看看是什么原因。",
+      "expected_output": "抓取/读取控制台日志，定位到编译错误(COMPILATION ERROR / 找不到符号)，并给出简洁的失败原因说明。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "trigger-with-progress",
+      "prompt": "确认发布 supply-center-dev 到 dev，发布完告诉我结果。",
+      "expected_output": "带 --yes 触发构建，跟踪排队与进度，结束时报告成功/失败结果。",
+      "files": []
+    }
+  ]
+}

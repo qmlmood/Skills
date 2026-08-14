@@ -1,0 +1,32 @@
+{
+  "jenkins": {
+    "baseUrl": "https://jenkins.example.com",
+    "timeout": 30,
+    "pollInterval": 10,
+    "logDir": "",
+    "credentials": {
+      "deploy-dev":  { "username": "your-user", "apiToken": "PUT_TOKEN_HERE" },
+      "deploy-prod": { "username": "your-user", "apiToken": "PUT_TOKEN_HERE" }
+    }
+  },
+  "deploys": [
+    {
+      "name": "supply-center-dev",
+      "job": "job/supply-center-dev",
+      "environment": "dev",
+      "branch": "develop",
+      "credential": "deploy-dev",
+      "branchParam": "GIT_BRANCH",
+      "params": {}
+    },
+    {
+      "name": "supply-center-prod",
+      "job": "job/supply-center-prod",
+      "environment": "prod",
+      "branch": "master",
+      "credential": "deploy-prod",
+      "branchParam": "GIT_BRANCH",
+      "params": {}
+    }
+  ]
+}
